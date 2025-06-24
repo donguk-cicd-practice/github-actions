@@ -13,4 +13,4 @@ jobs:
               "text": "GitHub 저장소에 새로운 푸시가 있습니다!\nRepository: ${{ github.repository }}\nCommit: ${{ github.sha }}"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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

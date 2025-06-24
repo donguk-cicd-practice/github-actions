@@ -1,0 +1,16 @@
+name: push-workflow 1
+on: push
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Slack Message
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "GitHub 저장소에 새로운 푸시가 있습니다!\nRepository: ${{ github.repository }}\nCommit: ${{ github.sha }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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

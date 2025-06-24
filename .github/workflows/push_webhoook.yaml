@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Send Slack Message
         uses: slackapi/slack-github-action@v1.25.0
@@ -16,4 +16,4 @@ jobs:
               "text": "GitHub 저장소에 새로운 푸시가 있습니다!\nRepository: ${{ github.repository }}\nCommit: ${{ github.sha }}"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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

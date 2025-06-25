@@ -2,7 +2,7 @@ name: context-workflow
 on: workflow_dispatch
 
 jobs:
-  no-checkout-job:
+  context-job:
     runs-on: ubuntu-latest
     steps:
       - name: github context

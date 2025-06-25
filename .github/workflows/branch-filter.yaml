@@ -1,0 +1,12 @@
+name: branch-filter-workflow
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  branch-filter-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo HI~

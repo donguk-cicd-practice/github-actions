@@ -42,7 +42,7 @@ jobs:
                     {
                       "title": "create repo result ${{ steps.create-repo.outcome }}",
                       "short": true,
-                      "value": "${{ steps.create-repo.outcome }}",
+                      "value": "${{ steps.create-repo.outcome }}"
                     }
                   ]
                 }

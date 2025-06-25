@@ -33,18 +33,14 @@ jobs:
         with:
           payload: |
             {
-              "text": "GitHub Action 결과 알림",
-              "attachments": [
+              "text": "리포지토리 생성 결과: ${{ steps.create-repo.outcome }}",
+              "blocks": [
                 {
-                  "pretext": "create repo result",
-                  "color": "#36a64f",
-                  "fields": [
-                    {
-                      "title": "create repo result ${{ steps.create-repo.outcome }}",
-                      "short": true,
-                      "value": "${{ steps.create-repo.outcome }}"
-                    }
-                  ]
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Repository:* donguk-cicd-practice/${{ inputs.prefix }}-${{ inputs.name }}\n*Status:* ${{ steps.create-repo.outcome }}"
+                  }
                 }
               ]
             }

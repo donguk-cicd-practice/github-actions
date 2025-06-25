@@ -21,9 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: gh auth login
-        run: gh auth login --with-token
-        env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
       - name: create-repo
         id: create-repo
         run: |
@@ -34,17 +33,20 @@ jobs:
         with:
           payload: |
             {
-              "text": "Repository Creation Result",
-              "blocks": [
+              "text": "GitHub Action 결과 알림",
+              "attachments": [
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*Repository Creation Status*: ${{ steps.create-repo.outcome }}"
-                  }
+                  "pretext": "create repo result",
+                  "color": "#36a64f",
+                  "fields": [
+                    {
+                      "title": "create repo result ${{ steps.create-repo.outcome }}",
+                      "short": true,
+                      "value": "${{ steps.create-repo.outcome }}",
+                    }
+                  ]
                 }
               ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

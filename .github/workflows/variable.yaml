@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo var
-        run: echo ${{ var.level }}
+        run: echo ${{ vars.level }}

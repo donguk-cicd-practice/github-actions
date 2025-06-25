@@ -1,9 +1,18 @@
-name: variables-workflow
+name: timeout-workflow
 on: push
 
 jobs:
-  variables-job:
+  timeout-job:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
-      - name: echo var
-        run: echo ${{ var.level }}
+      - name: loop
+        run: |
+          count=0
+          while true; do
+            echo "seconds: $count"
+            count=$((count+1))
+            sleep 1
+          done
+      - name: echo
+        run: echo hello

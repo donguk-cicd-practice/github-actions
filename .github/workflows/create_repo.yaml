@@ -36,4 +36,6 @@ jobs:
           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
           webhook-type: incoming-webhook
           payload: |
-            text: "리포지토리 생성 테스트"
+            {
+              "text": "리포지토리 생성 결과: ${{ steps.create-repo.outcome }}"
+            }
